@@ -19,6 +19,7 @@ public class pedal_chorus{
     }
     
     fun void kill(){
+        <<<"Shutting Down the Chorus Unit">>>;
         0 => loopVariable;    
     }
 }
