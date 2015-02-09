@@ -15,19 +15,20 @@ public class pedal_recorder{
     basied audio transmitter.
     */
     1 => int loopVariable;
-    fun void startRecord(){
-        
-        current_pipeline => WvOut recorder => blackhole;
-        recorder.wavFilename("test_recording.wav");
-        
+    
+    fun void startRecording(){
+        1 => loopVariable;
+        <<<"Starting to record using WvOut">>>;
+        dac => WvOut recorder => blackhole;
+        recorder.wavFilename("test_recording.wav");     
         while(loopVariable){
             10::ms => now;             
-        }
-        
+        }  
     }
     
     fun void kill(){
        0 => loopVariable;
+       <<<"Stopped Recording">>>;
     }
     
 }

@@ -15,7 +15,8 @@ public class pedal_threeBand{
     1 => int loopVariable;
     
     fun void initalize(float _bFreq, float _hFreq, float _lFreq, float _bQ, float _hQ, float _lQ,float _level){
-        
+        1 => loopVariable;
+        <<<"Initalizing the Three Band EQ">>>;
         adc => BPF bpf => HPF hpf => LPF lpf => Gain level => dac;
         
         bpf.set(_bFreq, _bQ);
@@ -30,6 +31,7 @@ public class pedal_threeBand{
     }
     
     fun void kill(){
+        <<<"Shutting down the three band EQ">>>;
         0 => loopVariable; 
     }
     

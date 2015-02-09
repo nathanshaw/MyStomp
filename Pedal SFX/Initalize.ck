@@ -6,12 +6,11 @@
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
-//me.dir() + "/_0.1.ck" => string Path;
-//me.dir() + "/_0.1.ck" => string Path;
-
+me.dir() + "/Recorder_0.1.ck" => string recordPath;
+me.dir() + "/LiSa_0.1.ck" => string lisaPath;
 me.dir() + "/Echo_0.1.ck" => string echoPath;
 me.dir() + "/Clean_0.1.ck" => string cleanPath;
-me.dir() + "/Chorus_Simple_0.1.ck" => string chorusPath;
+me.dir() + "/Chorus_0.1.ck" => string chorusPath;
 me.dir() + "/Pedal_Test_1.ck" => string testPath;
 me.dir() + "/Modulate_0.1.ck" => string modPath;
 me.dir() + "/Metro_0.1.ck" => string metroPath;
@@ -27,9 +26,8 @@ me.dir() + "/Pitch_Shift_0.1.ck" => string pitchshiftPath;
 //Machine.add() => int _id;
 //Machine.add() => int _id;
 //Machine.add() => int _id;
-//Machine.add() => int _id;
-//Machine.add() => int _id;
-
+Machine.add(recordPath) => int record_id;
+Machine.add(lisaPath) => int lisa_id;
 Machine.add(echoPath) => int echo_id;
 Machine.add(cleanPath) => int clean_id;
 Machine.add(chorusPath) => int chorus_id;
@@ -53,8 +51,8 @@ Machine.add(testPath) => int test_id;
 //Machine.remove(_id);
 //Machine.remove(_id);
 //Machine.remove(_id);
-//Machine.remove(_id);
-//Machine.remove(_id);
+Machine.remove(record_id);
+Machine.remove(lisa_id);
 Machine.remove(echo_id);
 Machine.remove(clean_id);
 Machine.remove(chorus_id);

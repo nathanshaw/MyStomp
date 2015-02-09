@@ -10,9 +10,11 @@ Encapsulated into class for use with the My-Stomp FX Pedal
 */
 
 public class pedal_metronome{
-    1 => int switchVariable;
+    
+    1 => int loopVariable;
+    
     fun void initalize(float _level, float beatsPerMinute, float beatsPerMeasure, int sampleNumber){
-        
+        1 => loopVariable;
         SndBuf metro => Gain level => dac;
         
         string wood_samples[6];
@@ -37,8 +39,8 @@ public class pedal_metronome{
         _level => float refLevel;
         refLevel * 0.65 => level.gain;
         (60 / beatsPerMinute) => float beat;
-        
-        while(switchVariable){
+        <<<"Starting the Metronome with ", beatsPerMeasure, " beats per measure and an overall tempo of ", beatsPerMinute, " beats per minute">>>;
+        while(loopVariable){
             
             for (0 => int i; i < beatsPerMeasure; i++){
                 if(i == 0){
@@ -59,7 +61,8 @@ public class pedal_metronome{
     }
     
     fun void kill(){
-        0 => switchVariable; 
+        0 => loopVariable; 
+        <<<"Shutting off the Metronome">>>;
     }
 }
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

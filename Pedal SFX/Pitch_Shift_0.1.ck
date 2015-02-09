@@ -13,8 +13,11 @@ Encapsulated into class for use with the My-Stomp FX Pedal
 public class pedal_pitchShift{
     
     1 => int loopVariable;
+    
     fun void initalize(float _level, float _shift){
         
+        1 => loopVariable;
+        <<<"Initalizing Pitch Shifter at shift ratio of ", _shift, ", and a level of", _level>>>;
         adc => PitShift pitShi => Gain level => dac;
         
         level.gain(_level);
@@ -22,12 +25,13 @@ public class pedal_pitchShift{
         pitShi.shift(_shift);
         
         while(loopVariable){
-            10::ms => now;    
+            10::ms => now;                
         }
     }
     
     fun void kill(){
         0 => loopVariable;  
+        <<<"Closing the Pitch Shifter">>>;
     }
     
 }

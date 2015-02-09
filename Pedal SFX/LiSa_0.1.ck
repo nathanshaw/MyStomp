@@ -15,6 +15,8 @@ public class pedal_lisa{
     
     fun void initalize(float _level ){
         
+        1 => loopVariable;
+        <<<"Opening the LISA live sampler at a level of ", _level>>>;
         adc => LiSa liveSamp => Gain level => dac;
         
         level.gain(_level);
@@ -26,6 +28,7 @@ public class pedal_lisa{
     }
     
     fun void kill(){
+        <<<"Closing LiSa, the live sampler">>>;
         0 => loopVariable;   
     }
     

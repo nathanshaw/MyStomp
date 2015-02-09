@@ -14,7 +14,8 @@ public class pedal_echo{
     1 => int loopVariable;
     
     fun void initalize(float _level, int msLength, int msMax){
-        
+        1 => loopVariable;
+        <<<"Initalizing the Echo Effect with a level of ", _level, ", a delay time of ",msLength, " ms, and a delay max of ",msMax>>>;
         adc => Echo echo => Gain level => dac;
         
         echo.mix(1);
@@ -33,5 +34,6 @@ public class pedal_echo{
     
     fun void kill(){
         0 => loopVariable; 
+        <<<"Shutting down the Echo Unit">>>;
     }   
 }
