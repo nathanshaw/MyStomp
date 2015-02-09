@@ -1,11 +1,15 @@
 // Initalize File for  Pedal
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//Loading up addressed to chuck files into strings for machine.add
+
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
+//me.dir() + "/_0.1.ck" => string Path;
+me.dir() + "/Compressor_0.1.ck" => string compressorPath;
+me.dir() + "/Limiter_0.1.ck" => string limiterPath;
+me.dir() + "/Expander_0.1.ck" => string expanderPath;
 me.dir() + "/Recorder_0.1.ck" => string recordPath;
 me.dir() + "/LiSa_0.1.ck" => string lisaPath;
 me.dir() + "/Echo_0.1.ck" => string echoPath;
@@ -20,12 +24,16 @@ me.dir() + "/Reverb_NRev_0.1.ck" => string nrevPath;
 me.dir() + "/Reverb_PRCRev_0.1.ck" => string prcPath;
 me.dir() + "/Pitch_Shift_0.1.ck" => string pitchshiftPath;
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-// Adding the loaded files to the Machine
-//Machine.add() => int _id;
-//Machine.add() => int _id;
-//Machine.add() => int _id;
-//Machine.add() => int _id;
-//Machine.add() => int _id;
+
+//Machine.add(Path) => int _id;
+//Machine.add(Path) => int _id;
+//Machine.add(Path) => int _id;
+//Machine.add(Path) => int _id;
+//Machine.add(Path) => int _id;
+//Machine.add(Path) => int _id;
+Machine.add(compressorPath) => int comp_id;
+Machine.add(limiterPath) => int limit_id;
+Machine.add(expanderPath) => int expand_id;
 Machine.add(recordPath) => int record_id;
 Machine.add(lisaPath) => int lisa_id;
 Machine.add(echoPath) => int echo_id;
@@ -50,7 +58,9 @@ Machine.add(testPath) => int test_id;
 //Machine.remove(_id);
 //Machine.remove(_id);
 //Machine.remove(_id);
-//Machine.remove(_id);
+Machine.remove(comp_id);
+Machine.remove(limit_id);
+Machine.remove(expand_id);
 Machine.remove(record_id);
 Machine.remove(lisa_id);
 Machine.remove(echo_id);
