@@ -9,15 +9,15 @@ LiSa effect
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class pedal_lisa{
+public class pedal_lisa extends Chubgraph{
     
     1 => int loopVariable;
     
     fun void initalize(float _level ){
         
         1 => loopVariable;
-        <<<"Opening the LISA live sampler at a level of ", _level>>>;
-        adc => LiSa liveSamp => Gain level => dac;
+        //<<<"Opening the LISA live sampler at a level of ", _level>>>;
+        inlet => LiSa liveSamp => Gain level => outlet;
         
         level.gain(_level);
         
@@ -28,7 +28,7 @@ public class pedal_lisa{
     }
     
     fun void kill(){
-        <<<"Closing LiSa, the live sampler">>>;
+        //<<<"Closing LiSa, the live sampler">>>;
         0 => loopVariable;   
     }
     

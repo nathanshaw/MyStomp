@@ -8,15 +8,15 @@ CCRMA's NRev reverberator class
     
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
-    public class pedal_NRev{
+   public class pedal_NRev extends Chubgraph{
         
         1 => int loopVariable;
         
         fun void initalize(float _level){
             
             1 => loopVariable;
-            <<<"Initalizing NRev at a level of ", _level>>>;
-            adc => NRev reverb => Gain level => dac;
+            //<<<"Initalizing NRev at a level of ", _level>>>;
+            inlet => NRev reverb => Gain level => outlet;
             
             reverb.mix(1.0);
             level.gain(_level);
@@ -28,7 +28,7 @@ CCRMA's NRev reverberator class
         
         fun void kill(){
             0 => loopVariable;  
-            <<<"Closing NRev">>>;
+            //<<<"Closing NRev">>>;
         }
         
     }

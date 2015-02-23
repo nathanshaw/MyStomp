@@ -1,12 +1,13 @@
 // Initalize File for  Pedal
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
+me.dir() + "/Pedal_Test_2.ck" => string testPath;
+///////////////////////////////////////////////////////////////////
 me.dir() + "/Compressor_0.1.ck" => string compressorPath;
 me.dir() + "/Limiter_0.1.ck" => string limiterPath;
 me.dir() + "/Expander_0.1.ck" => string expanderPath;
@@ -15,7 +16,6 @@ me.dir() + "/LiSa_0.1.ck" => string lisaPath;
 me.dir() + "/Echo_0.1.ck" => string echoPath;
 me.dir() + "/Clean_0.1.ck" => string cleanPath;
 me.dir() + "/Chorus_0.1.ck" => string chorusPath;
-me.dir() + "/Pedal_Test_1.ck" => string testPath;
 me.dir() + "/Modulate_0.1.ck" => string modPath;
 me.dir() + "/Metro_0.1.ck" => string metroPath;
 me.dir() + "/Three_Band_0.1.ck" => string threebandPath;
@@ -49,7 +49,9 @@ Machine.add(pitchshiftPath) => int ps_id;
 //this guy has to be last
 Machine.add(testPath) => int test_id;
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 1::week => now;
+
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //Removes 
 //Machine.remove(_id);

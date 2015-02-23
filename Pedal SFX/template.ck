@@ -1,21 +1,21 @@
 /*
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-Effect Class for the My-Stomp FX Pedal
+Chubgraph for the My-Stomp FX Pedal
 
 Designed by Nathan Villicana-Shaw in the Spring of 2015
-Encapsulated into class for use with the My-Stomp FX Pedal
+Encapsulated into Chubgraph for use with the My-Stomp FX Pedal
 
 
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class  {
+public class   extends Chubgraph{
     
     1 => int loopVariable;
     
-    fun void initalize(float _level ){
+    fun void initalize(float _level){
         <<<"">>>;
-        adc => => Gain level => dac;
+        input => => Gain level => output;
         
         level.gain(_level);
         

@@ -10,24 +10,25 @@ Limiter
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class pedal_limiter{
+public class pedal_limiter extends Chubgraph{
     
     1 => int loopVariable;
     
     fun void initalize(){
-        <<<"Initalizing Limiter">>>;
-        adc => Dyno limiter => dac;
+        
+        //<<<"Initalizing Limiter">>>;
+        
+        inlet => Dyno limiter => outlet;
         
         limiter.limit();
         //sets values to 
         /*
         slopeAbove = 0.1
-    slopeBelow = 1.0
-    thresh = 0.5
-    attackTime = 5 ms
-    releaseTime = 300 ms
-    externalSideInput = 0 (false)
-
+        slopeBelow = 1.0
+        thresh = 0.5
+        attackTime = 5 ms
+        releaseTime = 300 ms
+        externalSideInput = 0 (false)
         */
         while(loopVariable){
             10::ms => now;             
@@ -36,7 +37,7 @@ public class pedal_limiter{
     
     fun void kill(){
         0 => loopVariable; 
-        <<<"Shutting down the Limiter">>>;
+        //<<<"Shutting down the Limiter">>>;
     }
     
 }

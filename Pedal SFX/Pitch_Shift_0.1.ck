@@ -10,15 +10,15 @@ Encapsulated into class for use with the My-Stomp FX Pedal
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class pedal_pitchShift{
+public class pedal_pitchShift extends Chubgraph{
     
     1 => int loopVariable;
     
     fun void initalize(float _level, float _shift){
         
         1 => loopVariable;
-        <<<"Initalizing Pitch Shifter at shift ratio of ", _shift, ", and a level of", _level>>>;
-        adc => PitShift pitShi => Gain level => dac;
+        //<<<"Initalizing Pitch Shifter at shift ratio of ", _shift, ", and a level of", _level>>>;
+        inlet => PitShift pitShi => Gain level => outlet;
         
         level.gain(_level);
         pitShi.mix(1.0);
@@ -31,7 +31,7 @@ public class pedal_pitchShift{
     
     fun void kill(){
         0 => loopVariable;  
-        <<<"Closing the Pitch Shifter">>>;
+        //<<<"Closing the Pitch Shifter">>>;
     }
     
 }

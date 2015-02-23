@@ -10,33 +10,38 @@ Expander class extracted from the dyno class built into ChucK
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class pedal_expander{
+public class pedal_expander extends Chubgraph{
     
     1 => int loopVariable;
     
     fun void initalize(){
-        <<<"Initalizing Expander">>>;
-        adc => Dyno expander => dac;
+        
+        //<<<"Initalizing Expander">>>;
+        
+        inlet => Dyno expander => outlet;
         
         expander.expand();
         //sets values to 
+        
         /*
         slopeAbove = 2.0
-    slopeBelow = 1.0
-    thresh = 0.5
-    attackTime = 20 ms
-    releaseTime = 400 ms
-    externalSideInput = 0 (false)
-
+        slopeBelow = 1.0
+        thresh = 0.5
+        attackTime = 20 ms
+        releaseTime = 400 ms
+        externalSideInput = 0 (false)        
         */
+        
         while(loopVariable){
             10::ms => now;             
         }    
     }
     
     fun void kill(){
+        
         0 => loopVariable; 
-        <<<"Shutting down the Expander">>>;
+        //<<<"Shutting down the Expander">>>;
+        
     }
     
 }

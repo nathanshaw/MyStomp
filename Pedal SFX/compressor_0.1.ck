@@ -9,13 +9,15 @@ Compressor Class extractred from the Dyno dynamics processing class built into c
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class pedal_compressor{
+public class pedal_compressor extends Chubgraph{
     
     1 => int loopVariable;
    
     fun void initalize(){
-        <<<"Initalizing Compressor.">>>;
-        adc => Dyno compressor => dac;
+        
+        //<<<"Initalizing Compressor.">>>;
+        
+        inlet => Dyno compressor => outlet;
         
         compressor.compress();
         //sets values to 
@@ -34,7 +36,7 @@ public class pedal_compressor{
     
     fun void kill(){
         0 => loopVariable; 
-        <<<"Shutting down the Compressor">>>;
+        //<<<"Shutting down the Compressor">>>;
     }
     
 }
