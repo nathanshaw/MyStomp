@@ -7,10 +7,10 @@ Please note that we do not recommend using averaging with our sensors.
 Mode and Median filters are recommended.
 */
 
-const int anPin1 = a6;
-const int anPin2 = a7;
+const int anPin1 = A6;
+const int anPin2 = A7;
 int triggerPin1 = 6;
-long distance1, distance2, distance3, distance4;
+long distance1, distance2;
 
 void setup() {
   Serial.begin(9600);  // sets the serial port to 9600
@@ -43,7 +43,6 @@ void print_all(){
   Serial.print(" ");
   Serial.print(distance2);
   Serial.print("in");
-  Serial.print(" ");
   Serial.print(" ");
   Serial.println();
 }
