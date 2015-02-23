@@ -6,27 +6,23 @@ Adafruit_MCP23017 mcp0;
 
 boolean change=false;        // goes true when a change in the encoder state is detected
 int butPress = 101;          // stores which button has been pressed
-int encSelect[8] = {101, 0}; // stores the last encoder used and direction {encNo, 1=CW or 2=CCW}
+int encSelect[3] = {101, 0}; // stores the last encoder used and direction {encNo, 1=CW or 2=CCW}
 unsigned long currentTime;
 unsigned long loopTime;
 
-const int encCount0 = 8;  // number of rotary encoders
+const int encCount0 = 3;  // number of rotary encoders
 // encoder pin connections to MCP23017
 //    EncNo { Encoder pinA  GPAx, Encoder pinB  GPAy },
 const int encPins0[encCount0][2] = {
-  {0,4},   // enc:0 AA GPA0,GPA1 - pins 21/22 on MCP23017
-  {1,5},
-  {2,6},
-  {3,7},
-  {8,12},
-  {9,13},
-  {10,14},
-  {11,15}  // enc:1 BB GPA3,GPA4 - pins 24/25 on MCP23017
+  {0,1},   // enc:0 AA GPA0,GPA1 - pins 21/22 on MCP23017
+  {2,3},
+  {4,5}
 };  
-
+const int butCount0 = 5;
+const int butPins0[butCount0] = {8,9,10,11,12};
 // arrays to store the previous value of the encoders and buttons
 unsigned char encoders0[encCount0];
-
+unsigned char buttons0 [butCount0];
 // read the rotary encoder on pins X and Y, output saved in encSelect[encNo, direct]
 unsigned char readEnc(Adafruit_MCP23017 mcpX, const int *pin, unsigned char prev, int encNo) {
 
@@ -62,27 +58,30 @@ unsigned char readBut(Adafruit_MCP23017 mcpX, const int pin, unsigned char prev,
 unsigned char encPinsSetup(Adafruit_MCP23017 mcpX, const int *pin) {
 
   mcpX.pinMode(pin[0], INPUT);  // A
-  mcpX.pullUp(pin[0], HIGH);    // turn on a 100K pullup internally
+  //mcpX.pullUp(pin[0], HIGH);    // turn on a 100K pullup internally
   mcpX.pinMode(pin[1], INPUT);  // B
-  mcpX.pullUp(pin[1], HIGH); 
+  //mcpX.pullUp(pin[1], HIGH); 
 }
 
 // setup the push buttons
 void butPinsSetup(Adafruit_MCP23017 mcpX, const int pin) {
   mcpX.pinMode(pin, INPUT);
-  mcpX.pullUp(pin, HIGH); 
+  //mcpX.pullUp(pin, HIGH); 
 }
 
 void setup() {  
 
   mcp0.begin(0);    // 0 = i2c address 0x20
-
+  
   // setup the pins using loops, saves coding when you have a lot of encoders and buttons
-  for (int n = 0; n < encCount0; n++) {
+  for (int n = 0; n < encCount0; n++) { 
     encPinsSetup(mcp0, encPins0[n]);
     encoders0[n] = 1;  // default state
   }
-
+for (int n = 8; n < 8+butCount0; n++) { 
+    butPinsSetup(mcp0, butPins0[n]);
+    buttons0[n] = 0;  // default state
+  }
   Serial.begin(9600); 
   Serial.println("---------------------------------------");  
 
@@ -96,8 +95,11 @@ void loop() {
   currentTime = millis();
   if(currentTime >= (loopTime + 5)){
 
-    for (int n = 0; n < encCount0; n++) {
+    for (int n = 0; n < butCount0; n++) {
+      if(n < encCount0){
       encoders0[n] = readEnc(mcp0, encPins0[n], encoders0[n],n);
+      }
+      buttons0[n] = readBut(mcp0, butPins0[n], buttons0[n],n);
     }
 
     loopTime = currentTime;  // Updates loopTime
