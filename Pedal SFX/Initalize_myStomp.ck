@@ -6,7 +6,7 @@
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
-me.dir() + "/Pedal_Test_2.ck" => string testPath;
+me.dir() + "/Pedal_Test_3.ck" => string testPath;
 ///////////////////////////////////////////////////////////////////
 me.dir() + "/Compressor_0.1.ck" => string compressorPath;
 me.dir() + "/Limiter_0.1.ck" => string limiterPath;
