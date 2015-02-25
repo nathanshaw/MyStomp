@@ -30,10 +30,13 @@ adc => pedal_expander expander => dac;
 ///////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //
 //recorder.startRecording(1);
-jcRev.initalize(0.9);
+5::second => now;
+jcRev.mix(0.5);
 //adc => jcRev => dac;
 10::second => now;
 //
+jcRev.mix(0);
+
 while(1){
  1::second => now;   
 }

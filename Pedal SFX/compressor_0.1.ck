@@ -11,13 +11,12 @@ Compressor Class extractred from the Dyno dynamics processing class built into c
 
 public class pedal_compressor extends Chubgraph{
     
+    inlet => Dyno compressor => outlet;
     1 => int loopVariable;
    
     fun void initalize(){
         
         //<<<"Initalizing Compressor.">>>;
-        
-        inlet => Dyno compressor => outlet;
         
         compressor.compress();
         //sets values to 

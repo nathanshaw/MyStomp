@@ -12,12 +12,13 @@ LiSa effect
 public class pedal_lisa extends Chubgraph{
     
     1 => int loopVariable;
+    inlet => LiSa liveSamp => Gain level => outlet;
     
     fun void initalize(float _level ){
         
         1 => loopVariable;
         //<<<"Opening the LISA live sampler at a level of ", _level>>>;
-        inlet => LiSa liveSamp => Gain level => outlet;
+        
         
         level.gain(_level);
         

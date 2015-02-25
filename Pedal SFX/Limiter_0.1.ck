@@ -12,13 +12,14 @@ Limiter
 
 public class pedal_limiter extends Chubgraph{
     
+    inlet => Dyno limiter => outlet;
     1 => int loopVariable;
     
     fun void initalize(){
         
         //<<<"Initalizing Limiter">>>;
         
-        inlet => Dyno limiter => outlet;
+        
         
         limiter.limit();
         //sets values to 

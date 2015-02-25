@@ -13,12 +13,13 @@ Three band EQ utalizing a LPF, BPF and HPF
 public class pedal_threeBand extends Chubgraph{
     
     1 => int loopVariable;
+    inlet => BPF bpf => HPF hpf => LPF lpf => Gain level => outlet;
+    
     
     fun void initalize(float _bFreq, float _hFreq, float _lFreq, float _bQ, float _hQ, float _lQ,float _level){
         
         1 => loopVariable;
         //<<<"Initalizing the Three Band EQ">>>;
-        inlet => BPF bpf => HPF hpf => LPF lpf => Gain level => outlet;
         
         bpf.set(_bFreq, _bQ);
         hpf.set(_hFreq, _hQ);

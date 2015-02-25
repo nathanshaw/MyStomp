@@ -14,20 +14,21 @@ public class pedal_recorder extends Chubgraph{
     to an outside PC then run different code using the netout object which is a network
     basied audio transmitter.
     */
+    inlet => WvOut recorder => outlet;
     1 => int loopVariable;
     
     fun void startRecording(int recNum){
         
         1 => loopVariable;
         //<<<"Starting to record using WvOut">>>;
-        inlet => WvOut recorder => outlet;
+        
         /*
         "test_recording" + Std.stoi(recNum) + ".wav" => string name;
         recorder.wavFilename(name);     
         */
         
-       recorder.wavFilename("test_recording.wav");     
-
+        recorder.wavFilename("test_recording.wav");     
+        
         
         while(loopVariable){
             10::ms => now;             
@@ -35,8 +36,8 @@ public class pedal_recorder extends Chubgraph{
     }
     
     fun void kill(){
-       0 => loopVariable;
-       //<<<"Stopped Recording">>>;
+        0 => loopVariable;
+        //<<<"Stopped Recording">>>;
     }
     
 }

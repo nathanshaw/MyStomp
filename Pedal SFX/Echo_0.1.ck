@@ -11,13 +11,14 @@ Encapsulated into class for use with the My-Stomp FX Pedal
 
 public class pedal_echo extends Chubgraph{
     
+    inlet => Echo echo => Gain level => outlet;
     1 => int loopVariable;
     
     fun void initalize(float _level, int msLength, int msMax){
         
         1 => loopVariable;
         //<<<"Initalizing the Echo Effect with a level of ", _level, ", a delay time of ",msLength, " ms, and a delay max of ",msMax>>>;
-        inlet => Echo echo => Gain level => outlet;
+        
         
         echo.mix(1);
         level.gain(_level);

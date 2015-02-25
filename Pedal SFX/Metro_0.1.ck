@@ -12,12 +12,13 @@ Encapsulated into class for use with the My-Stomp FX Pedal
 public class pedal_metronome extends Chubgraph{
     
     1 => int loopVariable;
+    SndBuf metro => Gain level => outlet;
     
     fun void initalize(float _level, float beatsPerMinute, float beatsPerMeasure, int sampleNumber){
         
         1 => loopVariable;
         
-        SndBuf metro => Gain level => outlet;
+        
         
         string wood_samples[6];
         

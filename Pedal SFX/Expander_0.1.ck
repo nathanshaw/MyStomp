@@ -12,13 +12,15 @@ Expander class extracted from the dyno class built into ChucK
 
 public class pedal_expander extends Chubgraph{
     
+    inlet => Dyno expander => outlet;
+    
     1 => int loopVariable;
     
     fun void initalize(){
         
         //<<<"Initalizing Expander">>>;
         
-        inlet => Dyno expander => outlet;
+        
         
         expander.expand();
         //sets values to 

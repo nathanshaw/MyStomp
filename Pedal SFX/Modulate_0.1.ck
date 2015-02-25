@@ -15,11 +15,13 @@ public class pedal_modulate extends Chubgraph{
     
     1 => int loopVariable;
     
+    inlet => Modulate mod => Gain level => outlet;
+    
     fun void initalize(float _level, float _vibRate, float _vibGain, float _randGain){
         
         1 => loopVariable;
         //<<<"Initalizing the Modulate Effect with a level of ",_level,", a vibrato rate of ",_vibRate, " with a gain of ", _vibGain, ", and a random gain of ", _randGain>>>;
-        inlet => Modulate mod => Gain level => outlet;
+        
         
         level.gain(_level);
         mod.vibratoRate(_vibRate);

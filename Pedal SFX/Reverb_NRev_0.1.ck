@@ -10,13 +10,14 @@ CCRMA's NRev reverberator class
 */
    public class pedal_NRev extends Chubgraph{
         
+        inlet => NRev reverb => Gain level => outlet;
         1 => int loopVariable;
         
         fun void initalize(float _level){
             
             1 => loopVariable;
             //<<<"Initalizing NRev at a level of ", _level>>>;
-            inlet => NRev reverb => Gain level => outlet;
+            
             
             reverb.mix(1.0);
             level.gain(_level);
