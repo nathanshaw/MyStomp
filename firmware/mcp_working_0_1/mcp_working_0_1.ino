@@ -30,27 +30,31 @@ Adafruit_MCP23017 mcp;
 void setup() {  
   //pinMode(2,INPUT);
   //pinMode(13,OUTPUT);
+  Serial.begin(9600);
   Serial.println("Initalizing the mcp23017");
   mcp.begin();      // use default address 0
   for (int i = 0; i < butNum; i++){
-    Serial.println(i); 
     mcp.pinMode(i, INPUT);
-    if(i < 5){
+    if(i < 2){
       mcp.pullUp(i, HIGH);  // turn on a 100K pullup internally
     }  
+    else{
+     mcp.pullUp(i, LOW); 
+    }
   }
-  Serial.begin(9600);
+  
 }
 
 void readButtons(){
   for (int i = 0; i < butNum; i++){
     int temp = mcp.digitalRead(i);
     if (temp != buttonVal[i]){
-      buttonVal[i] = temp;
       Serial.print("Button State Changed ");
       Serial.print(i);
       Serial.print(" ");
       Serial.println(temp);
+      buttonVal[i] = temp;
+      
     }
   }
 }
