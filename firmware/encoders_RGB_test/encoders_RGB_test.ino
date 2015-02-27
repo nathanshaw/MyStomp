@@ -18,10 +18,11 @@ void readButton(){
 void loop(){
   //
   readButton();
-  for(int i = 5; i < 10; i++){
-    digitalWrite(i, HIGH);
+  for(int i = 5; i < 8; i++){
+    digitalWrite(i, LOW);
     delay(400); 
-     digitalWrite(i, LOW);
+     digitalWrite(i, HIGH);
+     delay(400);
   }
   delay(1000);
   Serial.println("HIGH");
