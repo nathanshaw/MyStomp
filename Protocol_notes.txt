@@ -1,0 +1,15 @@
+bite address
+
+0 - 0  normal data will follow
+1 - 9 startup modes
+	1 - record start
+	2 - metro start
+10 - 29 add/remove programs
+30 - 39 knob one control and modes
+40 - 49 knob two control and modes
+50 - 59 knob three control and modes
+60 - 69 stompbutton control and modes
+70 - 89 ultrasonic(both) control and modes
+90 - 119 9-dof control and modes
+
+Data : 
