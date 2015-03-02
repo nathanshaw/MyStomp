@@ -6,7 +6,10 @@
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
+me.dir() + "/serialin.ck" => string serialPath;
+///////////////////////////////////////////////////////////////////
 me.dir() + "/Pedal_Test_3.ck" => string testPath;
+me.dir() + "/synthState_1.ck" => string synth1Path;
 ///////////////////////////////////////////////////////////////////
 me.dir() + "/Compressor_0.1.ck" => string compressorPath;
 me.dir() + "/Limiter_0.1.ck" => string limiterPath;
@@ -31,6 +34,11 @@ me.dir() + "/Pitch_Shift_0.1.ck" => string pitchshiftPath;
 //Machine.add(Path) => int _id;
 //Machine.add(Path) => int _id;
 //Machine.add(Path) => int _id;
+Machine.add(synth1Path) => int synth1_id;
+
+Machine.add(serialPath) => int serial_id;
+
+
 Machine.add(compressorPath) => int comp_id;
 Machine.add(limiterPath) => int limit_id;
 Machine.add(expanderPath) => int expand_id;
@@ -47,7 +55,8 @@ Machine.add(nrevPath) => int nrev_id;
 Machine.add(prcPath) => int prc_id;
 Machine.add(pitchshiftPath) => int ps_id;
 //this guy has to be last
-Machine.add(testPath) => int test_id;
+//Machine.add(testPath) => int test_id;
+
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 1::week => now;
@@ -60,6 +69,7 @@ Machine.add(testPath) => int test_id;
 //Machine.remove(_id);
 //Machine.remove(_id);
 //Machine.remove(_id);
+Machine.remove(serial_id);
 Machine.remove(comp_id);
 Machine.remove(limit_id);
 Machine.remove(expand_id);
@@ -68,7 +78,7 @@ Machine.remove(lisa_id);
 Machine.remove(echo_id);
 Machine.remove(clean_id);
 Machine.remove(chorus_id);
-Machine.remove(test_id);
+//Machine.remove(test_id);
 Machine.remove(mod_id);
 Machine.remove(metro_id);
 Machine.remove(threeBand_id);
@@ -76,4 +86,5 @@ Machine.remove(jcrev_id);
 Machine.remove(nrev_id);
 Machine.remove(prc_id);
 Machine.remove(ps_id);
+Machine.remove(synth1_id);
 /////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

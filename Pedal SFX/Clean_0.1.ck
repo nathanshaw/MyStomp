@@ -4,7 +4,7 @@ Class for the clean signal, will hopfully replace with a true bypass in the circ
 
 public class pedal_clean extends Chubgraph{
     
-    inlet => Gain gain => outlet;
+    inlet => Gain gainer => outlet;
     
     1 => int loopVariable;
     
@@ -14,7 +14,7 @@ public class pedal_clean extends Chubgraph{
         
         //<<<"Opening False Bypass at a level of ", level>>>;
         
-        gain.gain(level);
+        gainer.gain(level);
         while(loopVariable){
             10::ms => now;
         }

@@ -47,6 +47,11 @@ int mode = 0;
 int record = 0;
 int metro = 0;
 
+long butModeTime = 3000;
+long butLastPress[3]; 
+
+int butLock[3];
+
 const int butNum = 3;
 
 const int button[butNum] = {
@@ -70,17 +75,30 @@ void sendMode(int modeNum){
 }
 
 void readButtons(){
- for(int i = 0; i < butNum; i++){
-      butState[i] = digitalRead(button[i]);
-    } 
+  for(int i = 0; i < butNum; i++){
+    oldButState[i] = butState[i];   
+    butState[i] = digitalRead(button[i]);
+    if(butState[i] == 1 && oldButState[i] == 0)
+    {
+     butLastPress[i] = millis();
+    }
+    else if (butLock[i] == 0 && butState[i] == 1 && oldButState[i] == 1 && millis() >  butLastPress[i] + butModeTime){
+      sendMode(i + 4);
+      butLock[i] = 1;
+    }
+    else if(butState[i] == 0 && oldButState[i] == 1){
+     butLock[i] = 0; 
+    }
+  } 
 }
 
 void setMode(){
 
   last = millis();
+  int metroSwitch, recordSwitch, synthSwitch = 0;
 
   while(now < (last + bootTime)){
-    int metroSwitch, recordSwitch, synthSwitch = 0;
+
     for(int i = 0; i < butNum; i++){
       butState[i] = digitalRead(button[i]);
     }
@@ -101,21 +119,6 @@ void setMode(){
     }
     now = millis();
   }
-
-  if(metro == 1){
-    Serial.println("-----------------------------------------");
-    Serial.println("Metronome Start Message Sent to Chuck");  
-  }
-  if(record == 1){
-    Serial.println("-----------------------------------------");
-    Serial.println("Recording Start Message Sent to Chuck");    
-  }
-  if(mode == 1){
-    Serial.println("-----------------------------------------");
-    Serial.println("Starting Chuck in Synth Mode");
-  }
-
-
 }
 
 void initSensors(){
@@ -237,6 +240,7 @@ void loop(){
   printData();
   delay(10);
 }
+
 
 
 
