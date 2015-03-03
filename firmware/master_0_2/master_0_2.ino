@@ -1,4 +1,10 @@
 /////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//                      Arduino Firmware for the My-Stomp Fx Box and Synth
+//                  Programmed by Nathan Villicana-Shaw in the Spring of 2015
+//                                      CalArts MTIID
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //9 dof setup code
 /////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 #include <Wire.h>
@@ -11,68 +17,56 @@ Adafruit_9DOF                dof   = Adafruit_9DOF();
 Adafruit_LSM303_Accel_Unified accel = Adafruit_LSM303_Accel_Unified(30301);
 Adafruit_LSM303_Mag_Unified   mag   = Adafruit_LSM303_Mag_Unified(30302);
 /////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-// Median filters
+//                                Rangefinder Variables
 /////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-MedianFilter Filter1;
+MedianFilter Filter1;//one filter for each ultrasonic
 MedianFilter Filter2;
-/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-// Rangefinder Code
-/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //code for the rangefiners
-const int ultraNum = 2;
-const int ultraPin[ultraNum] = {
-  A0, A1};
+const int ultraNum = 2;//number of rangefinders
+int ultra1, ultra2;
+//////TEMP\\\\\\
+/*
+These are to test my code on the UNO, the project will be getting this data from other means
+*/
+const int ultraPin[ultraNum] = {A0, A1};
 const int ultraRX = 5;
-
-int ultra1Past[5];
-int ultra2Past[5];
-//for encoder encoders
-int enc1, enc2, enc3 = 0;
-//for stompbutton
-int stomp = 0;
 //
 const int filterSize = 5;//has to be an odd number
 int distances[filterSize];
 int sortedValues1[filterSize];
 int sortedValues2[filterSize];
-/////////////////////////////// 9DOF variables
-int ultra1, ultra2;
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//                                     9DOF Variables
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 float roll, pitch, heading;
 ////////////////////////// for timing
 unsigned long last;
-unsigned long now;
 int bootTime = 1500;
 
-int mode = 0;
-int record = 0;
-int metro = 0;
+int mode, record, metro = 0;
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//                                   Button Variables
+/////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+////////////////////////////////////////////
+//for button long press
 long butModeTime = 3000;
 long butLastPress[3]; 
-
 int butLock[3];
-
+////////////////////////////////////////////
 const int butNum = 3;
+const int button[butNum] = {8,9,10};
+int oldButState[butNum] = {0,0,0};
+int butState[butNum] = {0,0,0};
 
-const int button[butNum] = {
-  8,9,10  
-};
-int oldButState[butNum] = {
-  0,0,0 
-};
-int butState[butNum] = {
-  0,0,0 
-};
+//for encoder encoders
+int enc1, enc2, enc3 = 0;
+//for stompbutton
+int stomp = 0;
 /////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-// Functions
+//                                      Functions
 /////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//loop this for a second to check for input, dont include else 
-void sendMode(int modeNum){
-  Serial.print("[");
-  Serial.print(modeNum, DEC);
-  Serial.print("]");
-  Serial.print("\n");
-}
+
 
 void readButtons(){
   for(int i = 0; i < butNum; i++){
@@ -120,41 +114,31 @@ void setMode(){
     now = millis();
   }
 }
-
-void initSensors(){
-  if(!accel.begin())
-  {
-    /* There was a problem detecting the LSM303 ... check your connections */
-    Serial.println(F("Ooops, no LSM303 detected ... Check your wiring!"));
-    //while(1);
-  }
-  if(!mag.begin())
-  {
-    /* There was a problem detecting the LSM303 ... check your connections */
-    Serial.println("Ooops, no LSM303 detected ... Check your wiring!");
-    //while(1);
-  }
+// to send special mode messages to ChucK
+void sendMode(int modeNum){
+  Serial.print("[");
+  Serial.print(modeNum, DEC);
+  Serial.print("]");
+  Serial.print("\n");
 }
-
+//get distance data from ultrasonic rangefinders
 void findRange(){
   digitalWrite(ultraRX, HIGH);
   delayMicroseconds(25);
   digitalWrite(ultraRX, LOW);
-  delayMicroseconds(50);
+  delayMicroseconds(50);//not sure if this delay is needed or not
   ultra1 = analogRead(ultraPin[0]);
   ultra2 = analogRead(ultraPin[1]);
 }
-
-
+//read data from the 9DOF sensor
 void dofRead()
 {
-
   sensors_event_t accel_event;
   sensors_event_t mag_event;
   sensors_vec_t   orientation;
   /* Calculate pitch and roll from the raw accelerometer data */
   accel.getEvent(&accel_event);
-
+  //if we get a value for orientation
   if (dof.accelGetOrientation(&accel_event, &orientation))
   {
     /* 'orientation' should have valid .roll and .pitch fields */
@@ -171,51 +155,46 @@ void dofRead()
 }
 
 void printData(){
-  ////////// Ultra Sonics
+  ////////// Ultra Sonics \\\\\\\\\\\\
   Serial.print("[");
   Serial.print(ultra1, DEC);
   Serial.print(",");
   Serial.print(ultra2, DEC);
   Serial.print(",");
-  ///////////// 9DOF
-
+  ///////////// 9DOF \\\\\\\\\\\\
   int iroll = (int) roll;
   Serial.print(iroll+ 500, DEC);
   Serial.print(",");
+  //work around to send data through current system
   int ipitch = (int) pitch;
   Serial.print(ipitch + 500, DEC);
   Serial.print(",");
   int iheading = (int) heading;
   Serial.print(iheading + 500, DEC);
   Serial.print(",");
-
-  /////////// Buttons
+  /////////// Buttons \\\\\\\\\\\\
   Serial.print(butState[0], DEC);
   Serial.print(",");
   Serial.print(butState[1], DEC);
   Serial.print(",");
   Serial.print(butState[2], DEC);
   Serial.print(",");
-  ////////// Encoders
+  ////////// Encoders \\\\\\\\\\\\
   Serial.print(enc1, DEC);
   Serial.print(",");
   Serial.print(enc2, DEC);
   Serial.print(",");
   Serial.print(enc3, DEC);
   Serial.print(",");
-  ////////// StompSwitch
+  ////////// StompSwitch \\\\\\\\\\\\
   Serial.print(stomp, DEC);
   Serial.print("]");
   Serial.print("\n");
 }
-
+////////////////////////////////////////////////////////////////////////////////////////
 void setup(){
   Serial.begin(57600);
-  Serial.println("-----------------------------------------");
-  Serial.println("Setting up your My-Stomp");
-  Serial.println("-----------------------------------------");
-  initSensors(); /* Initialise the 9dof sensors */
-  //Filter1.begin();// initalize filters
+  //Filter1.begin();// initalize filters, they seem buggy so i took them out for now
   //Filter2.begin();
   pinMode(ultraRX, OUTPUT);
   pinMode(ultraPin[0], INPUT);
@@ -227,18 +206,17 @@ void setup(){
   for(int i = 0; i < butNum; i++){
     pinMode(button[i], INPUT);
   }
-
   delay(100);
   //setup modes
   setMode();   
 }
-
+////////////////////////////////////////////////////////////////////////////////////////
 void loop(){
   readButtons();
   dofRead();
   findRange();
   printData();
-  delay(10);
+  delay(10);//not sure if we need this
 }
 
 
