@@ -13,10 +13,10 @@ me.dir() + "/Pedal_test_2.ck" => string testPath;
 //Machine.add(Path) => int _id;
 //Machine.add(Path) => int _id;
 //Machine.add(Path) => int _id;
-me.dir() + "/serialin.ck" => string serialPath;
+//me.dir() + "/serialin.ck" => string serialPath;
 ///////////////////////////////////////////////////////////////////
 //me.dir() + "/Pedal_Test_3.ck" => string testPath;
-me.dir() + "/synthState_1.ck" => string synth1Path;
+//me.dir() + "/synthState_1.ck" => string synth1Path;
 ///////////////////////////////////////////////////////////////////
 me.dir() + "/Compressor_0.1.ck" => string compressorPath;
 me.dir() + "/Limiter_0.1.ck" => string limiterPath;
@@ -36,7 +36,7 @@ me.dir() + "/Pitch_Shift_0.1.ck" => string pitchshiftPath;
 //
 //Machine.add(synth1Path) => int synth1_id;
 //
-Machine.add(serialPath) => int serial_id;
+//Machine.add(serialPath) => int serial_id;
 //
 Machine.add(compressorPath) => int comp_id;
 Machine.add(limiterPath) => int limit_id;

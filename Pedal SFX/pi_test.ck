@@ -12,7 +12,7 @@ int encoders[3];
 int stomp;
 int mode;
 
-sine s;
+//sine s;
 
 SerialIO.list() @=> string list[];
 for( int i; i < list.cap(); i++ )
