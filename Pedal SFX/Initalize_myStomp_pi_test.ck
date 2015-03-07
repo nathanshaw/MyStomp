@@ -43,11 +43,11 @@ Machine.add(compressorPath) => int comp_id;
 Machine.add(limiterPath) => int limit_id;
 Machine.add(expanderPath) => int expand_id;
 Machine.add(recordPath) => int record_id;
-Machine.add(lisaPath) => int lisa_id;
+//Machine.add(lisaPath) => int lisa_id;
 Machine.add(echoPath) => int echo_id;
 
 Machine.add(chorusPath) => int chorus_id;
-Machine.add(modPath) => int mod_id;
+//Machine.add(modPath) => int mod_id;
 Machine.add(metroPath) => int metro_id;
 Machine.add(threebandPath) => int threeBand_id;
 
