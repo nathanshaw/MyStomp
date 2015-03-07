@@ -38,7 +38,7 @@ me.dir() + "/Pitch_Shift_0.1.ck" => string pitchshiftPath;
 //
 //Machine.add(serialPath) => int serial_id;
 //
-/*
+
 Machine.add(compressorPath) => int comp_id;
 Machine.add(limiterPath) => int limit_id;
 Machine.add(expanderPath) => int expand_id;
@@ -54,7 +54,7 @@ Machine.add(threebandPath) => int threeBand_id;
 Machine.add(nrevPath) => int nrev_id;
 Machine.add(prcPath) => int prc_id;
 Machine.add(pitchshiftPath) => int ps_id;
-*/
+
 Machine.add(cleanPath) => int clean_id;
 Machine.add(jcrevPath) => int jcrev_id;
 //this guy has to be last
