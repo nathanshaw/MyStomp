@@ -45,7 +45,7 @@ Machine.add(expanderPath) => int expand_id;
 Machine.add(recordPath) => int record_id;
 Machine.add(lisaPath) => int lisa_id;
 Machine.add(echoPath) => int echo_id;
-Machine.add(cleanPath) => int clean_id;
+
 Machine.add(chorusPath) => int chorus_id;
 Machine.add(modPath) => int mod_id;
 Machine.add(metroPath) => int metro_id;
@@ -55,6 +55,7 @@ Machine.add(nrevPath) => int nrev_id;
 Machine.add(prcPath) => int prc_id;
 Machine.add(pitchshiftPath) => int ps_id;
 */
+Machine.add(cleanPath) => int clean_id;
 Machine.add(jcrevPath) => int jcrev_id;
 //this guy has to be last
 Machine.add(testPath) => int test_id;
