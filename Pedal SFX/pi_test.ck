@@ -102,7 +102,7 @@ fun void detectDofEvent(){
 fun void program1(){
     adc => pedal_clean clean => dac;
     adc => pedal_JCRev jcRev => dac;
-    clean.initialize(0.01);
+    clean.initalize(0.01);
     jcRev.mix(0.007);
     while(true){
      10::ms => now;   
