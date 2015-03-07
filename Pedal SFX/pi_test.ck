@@ -107,8 +107,8 @@ fun void program1(){
     }
 }
 
-spork ~ detectDofEvent();
-spork ~ serialPoller();
+//spork ~ detectDofEvent();
+//spork ~ serialPoller();
 spork ~program1();
 // COMPOSITION
 while (true)
