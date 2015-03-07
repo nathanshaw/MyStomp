@@ -27,10 +27,10 @@ me.dir() + "/Echo_0.1.ck" => string echoPath;
 me.dir() + "/Clean_0.1.ck" => string cleanPath;
 //me.dir() + "/Chorus_0.1.ck" => string chorusPath;
 //me.dir() + "/Modulate_0.1.ck" => string modPath;
-me.dir() + "/Metro_0.1.ck" => string metroPath;
+//me.dir() + "/Metro_0.1.ck" => string metroPath;
 //me.dir() + "/Three_Band_0.1.ck" => string threebandPath;
 //me.dir() + "/Reverb_JCRev_0.1.ck" => string jcrevPath;
-me.dir() + "/Reverb_NRev_0.1.ck" => string nrevPath;
+//me.dir() + "/Reverb_NRev_0.1.ck" => string nrevPath;
 //me.dir() + "/Reverb_PRCRev_0.1.ck" => string prcPath;
 //me.dir() + "/Pitch_Shift_0.1.ck" => string pitchshiftPath;
 //
@@ -48,10 +48,10 @@ Machine.add(echoPath) => int echo_id;
 
 //Machine.add(chorusPath) => int chorus_id;
 //Machine.add(modPath) => int mod_id;
-Machine.add(metroPath) => int metro_id;
+//Machine.add(metroPath) => int metro_id;
 //Machine.add(threebandPath) => int threeBand_id;
 
-Machine.add(nrevPath) => int nrev_id;
+//Machine.add(nrevPath) => int nrev_id;
 //Machine.add(prcPath) => int prc_id;
 //Machine.add(pitchshiftPath) => int ps_id;
 
