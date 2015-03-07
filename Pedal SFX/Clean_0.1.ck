@@ -8,7 +8,7 @@ public class pedal_clean extends Chubgraph{
     0 => gainer.gain;
     1 => int loopVariable;
     
-    fun void gain(float level){
+    fun void initalize(float level){
         
         1 => loopVariable;
         
