@@ -101,7 +101,7 @@ fun void detectDofEvent(){
 
 fun void program1(){
     adc => pedal_clean clean => pedal_recorder rec => dac;
-    rec.startRecording(0);
+    spork ~rec.startRecording(0);
     //adc => pedal_JCRev jcRev => dac;
     clean.initalize(0.001);
     //jcRev.mix(0.007);
