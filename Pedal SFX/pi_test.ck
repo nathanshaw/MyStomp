@@ -60,8 +60,7 @@ fun void serialPoller(){
                 }
                 // stompbutton
                 else if( i == 12 ){
-                    Std.atoi(stringInts[i]) => stomp;
-                    
+                    Std.atoi(stringInts[i]) => stomp;    
                 }
             }
         }
@@ -80,7 +79,8 @@ fun void serialPoller(){
             else{
                 <<<"MODE NUMBER : ", mode>>>;   
             }
-            0 => mode;
+             0 => mode;
+           
         }
     }
 }
@@ -90,15 +90,15 @@ fun void detectDofEvent(){
         if(pitch > 170 || pitch < -170){
             <<<"Changing Mode">>>;
             <<<"Restarted Recording">>>;   
-            spork ~ s.start();
+            spork ~ s.initalize();
         } 
         15::ms => now;
     }    
 }
 
-fun void program1(float mix){
+fun void program1(){
     adc => pedal_JCRev jcRev => dac;
-    jcRev.mix(mix);
+    jcRev.mix(0.7);
     while(true){
      10::ms => now;   
     }

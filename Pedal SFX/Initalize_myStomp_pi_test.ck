@@ -5,7 +5,7 @@
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
 //me.dir() + "/_0.1.ck" => string Path;
-me.dir() + "/Pedal_test_2.ck" => string testPath;
+me.dir() + "/pi_test.ck" => string testPath;
 
 //Machine.add(Path) => int _id;
 //Machine.add(Path) => int _id;

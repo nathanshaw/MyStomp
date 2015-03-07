@@ -88,16 +88,19 @@ void setMode(){
     if(butState[0] == 1 && synthSwitch == 0){
       sendMode(1);
       synthSwitch++;
+       Serial.println("Booting up My-Stomp in Synth Mode");
     }
     //check for recording
     if(butState[1] == 1 && recordSwitch == 0){
       sendMode(2);
       recordSwitch++;
+      Serial.println("Booting up MyStomp in Recording Mode");
     }
     //check for metronome
     if(butState[2] == 1 && metroSwitch == 0){
       sendMode(3);
       metroSwitch++;
+      Serial.println("Booting up My-Stomp in Metronome Mode");
     }
     now = millis();
   }
