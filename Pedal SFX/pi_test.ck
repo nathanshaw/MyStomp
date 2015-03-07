@@ -67,7 +67,10 @@ fun void serialPoller(){
         else if (RegEx.match("\\[([0-9]+)\\]", line , modeInt))
         {
             Std.atoi(modeInt[1]) => mode;
-            if(mode == 1){
+            if( mode == 0){
+             spork ~program1();   
+            }
+            else if(mode == 1){
                 <<<"Synth Mode">>>;
             }
             else if (mode == 2) {
@@ -90,7 +93,7 @@ fun void detectDofEvent(){
         if(pitch > 170 || pitch < -170){
             <<<"Changing Mode">>>;
             <<<"Restarted Recording">>>;   
-            spork ~ s.initalize();
+            //spork ~ s.initalize();
         } 
         15::ms => now;
     }    
@@ -111,8 +114,8 @@ spork ~ serialPoller();
 while (true)
 {
     5::second => now;
-    for(0 => int i ; i< 15; i++){
-        <<< ultras[0], ultras[1], roll, pitch, heading, buttons[0], buttons[1], buttons[2], encoders[0], encoders[1], encoders[2], stomp>>>;
-        20::ms => now;   
-    }
+    //for(0 => int i ; i< 15; i++){
+    //    <<< ultras[0], ultras[1], roll, pitch, heading, buttons[0], buttons[1], buttons[2], encoders[0], encoders[1], encoders[2], stomp>>>;
+     //   20::ms => now;   
+    //}
 }
