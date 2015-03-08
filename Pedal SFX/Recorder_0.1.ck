@@ -26,8 +26,9 @@ public class pedal_recorder extends Chubgraph{
         "test_recording" + Std.stoi(recNum) + ".wav" => string name;
         recorder.wavFilename(name);     
         */
-        
-        recorder.wavFilename("test_recording.wav");     
+        "test_recording" => string recordingName;
+        recordingName <= recNum <= ".wav";
+        recorder.wavFilename(recordingName);     
         
         
         while(loopVariable){
