@@ -4,15 +4,16 @@ string stringInts[12];
 string modeInt[1];
 
 int ultras[2];
-int roll;
-int pitch;
-int heading;
+float roll;
+float pitch;
+float heading;
 int buttons[3];
 int encoders[3];
 int stomp;
 int mode;
 
-//sine s;
+[0,0,0,0,0] @=> int ultra1Past[];
+[0,0,0,0,0] @=> int ultra2Past[];
 
 SerialIO.list() @=> string list[];
 for( int i; i < list.cap(); i++ )
@@ -35,20 +36,32 @@ fun void serialPoller(){
         // Line Parser
         if (RegEx.match("\\[([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+)\\]", line , stringInts))
         {
-            for( 1 =>int i; i<stringInts.cap(); i++)  
+            //<<<"parsing">>>;
+            for( 1 => int i; i < stringInts.cap(); i++)  
             {
                 //ultrasonics
-                if(i < 3){
-                    Std.atoi(stringInts[i]) => ultras[i-1];
+                if(i == 1){
+                    
+                    //FIFO(ultra1Past, Std.atoi(stringInts[i])) @=> ultra1Past;
+                    //median(ultra1Past) => ultras[0];
+                    Std.atoi(stringInts[i]) => ultras[0];
+                }
+                else if (i == 2){
+                    //FIFO(ultra2Past, Std.atoi(stringInts[i])) @=> ultra1Past;
+                    //median(ultra2Past) => ultras[1];
+                    Std.atoi(stringInts[i]) => ultras[1];
                 }
                 // 9 DOF
                 else if (i == 3){
+                    //weightedAverage(Std.atoi(stringInts[i])-500, roll, 0.3) => roll;
                     Std.atoi(stringInts[i])-500 => roll;
                 }
                 else if (i == 4){
-                    Std.atoi(stringInts[i])-500 => pitch;
+                    //weightedAverage(Std.atoi(stringInts[i])-500, pitch, 0.3) => pitch;
+                    Std.atoi(stringInts[i])-500 =>  pitch;
                 }
                 else if (i == 5){
+                    //weightedAverage(Std.atoi(stringInts[i])-500, heading, 0.3) => heading;
                     Std.atoi(stringInts[i])-500 => heading;
                 }
                 //encoders
@@ -68,7 +81,8 @@ fun void serialPoller(){
         {
             Std.atoi(modeInt[1]) => mode;
             if( mode == 0){
-             spork ~program1();   
+                //spork ~program1();   
+                <<<"Pedal Mode">>>;
             }
             else if(mode == 1){
                 <<<"Synth Mode">>>;
@@ -82,10 +96,39 @@ fun void serialPoller(){
             else{
                 <<<"MODE NUMBER : ", mode>>>;   
             }
-             0 => mode;
-           
+            0 => mode;
+            
         }
     }
+}
+
+fun float weightedAverage(int newValue, float oldValue, float weight){
+    return (oldValue*weight + newValue*(1-weight));
+}
+
+//first in first out
+fun int[] FIFO(int values[], int newValue){
+    for(values.cap() => int i; i > 0; i--){
+        values[i] => values[i -1];
+    }
+    newValue => values[values.cap()];
+    return values;
+}
+
+//always pass odd numbered arrays
+fun int median(int values[]){
+    0 => int counter;
+    for(0 => int i; i < values.cap(); i++){
+        for (0 => int p; p < values.cap(); p++){
+            if(values[i] >= values[p]){
+                counter++;   
+            }
+        }
+        if (counter == ((values.cap()+1)/2)){
+            return values[i];          
+        }
+        0 => counter; 
+    }    
 }
 
 fun void detectDofEvent(){
@@ -98,7 +141,7 @@ fun void detectDofEvent(){
         15::ms => now;
     }    
 }
-
+/*
 fun void program1(){
     adc => pedal_clean clean => pedal_recorder rec => dac;
     spork ~rec.startRecording(0);
@@ -108,19 +151,19 @@ fun void program1(){
     10::second => now;
     rec.kill();
     while(true){
-     10::ms => now;   
+        10::ms => now;   
     }
 }
-
+*/
 //spork ~ detectDofEvent();
-//spork ~ serialPoller();
-spork ~program1();
+spork ~ serialPoller();
+//spork ~program1();
 // COMPOSITION
 while (true)
 {
-    5::second => now;
-    //for(0 => int i ; i< 15; i++){
-    //    <<< ultras[0], ultras[1], roll, pitch, heading, buttons[0], buttons[1], buttons[2], encoders[0], encoders[1], encoders[2], stomp>>>;
-     //   20::ms => now;   
-    //}
+    .5::second => now;
+    for(0 => int i ; i< 15; i++){
+        <<< ultras[0], ultras[1], roll, pitch, heading, buttons[0], buttons[1], buttons[2], encoders[0], encoders[1], encoders[2], stomp>>>;
+        20::ms => now;   
+    }
 }
