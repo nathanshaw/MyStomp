@@ -164,7 +164,7 @@ fun void program1(){
 
 spork ~ serialPoller();
 spork ~ detectDofEvent();
-2::secon => now;
+2::second => now;
 spork ~program1();
 // COMPOSITION
 
