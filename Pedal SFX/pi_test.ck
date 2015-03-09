@@ -34,45 +34,47 @@ fun void serialPoller(){
         0 => stringInts.size;
         
         // Line Parser
-        if (RegEx.match("\\[([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+)\\]", line , stringInts))
+        if (RegEx.match("\\[([0-9]+),([0-9]+),(-?[0-9]+),(-?[0-9]+),(-?[0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+)\\]", line , stringInts))
         {
+            //<<< line >>>;
             //<<<"parsing">>>;
-            for( 1 => int i; i < stringInts.cap(); i++)  
+            for( 0 => int i; i < stringInts.cap(); i++)  
             {
                 //ultrasonics
-                if(i == 1){
+                if(i == 0){
                     
                     //FIFO(ultra1Past, Std.atoi(stringInts[i])) @=> ultra1Past;
+                    //<<<ultra1Past[0],ultra1Past[1],ultra1Past[2],ultra1Past[3],ultra1Past[4]>>>;
                     //median(ultra1Past) => ultras[0];
                     Std.atoi(stringInts[i]) => ultras[0];
                 }
-                else if (i == 2){
+                else if (i == 1){
                     //FIFO(ultra2Past, Std.atoi(stringInts[i])) @=> ultra1Past;
                     //median(ultra2Past) => ultras[1];
                     Std.atoi(stringInts[i]) => ultras[1];
                 }
                 // 9 DOF
-                else if (i == 3){
+                else if (i == 2){
                     //weightedAverage(Std.atoi(stringInts[i])-500, roll, 0.3) => roll;
                     Std.atoi(stringInts[i])-500 => roll;
                 }
-                else if (i == 4){
+                else if (i == 3){
                     //weightedAverage(Std.atoi(stringInts[i])-500, pitch, 0.3) => pitch;
                     Std.atoi(stringInts[i])-500 =>  pitch;
                 }
-                else if (i == 5){
+                else if (i == 4){
                     //weightedAverage(Std.atoi(stringInts[i])-500, heading, 0.3) => heading;
                     Std.atoi(stringInts[i])-500 => heading;
                 }
                 //encoders
-                else if (i > 5 && i < 9){
-                    Std.atoi(stringInts[i]) => buttons[i - 6];
+                else if (i > 4 && i < 8){
+                    Std.atoi(stringInts[i]) => buttons[i - 5];
                 }
-                else if (i > 8 && i < 12){
-                    Std.atoi(stringInts[i]) => encoders[i - 9];
+                else if (i > 7 && i < 11){
+                    Std.atoi(stringInts[i]) => encoders[i - 8];
                 }
                 // stompbutton
-                else if( i == 12 ){
+                else if( i == 11 ){
                     Std.atoi(stringInts[i]) => stomp;    
                 }
             }
@@ -108,10 +110,10 @@ fun float weightedAverage(int newValue, float oldValue, float weight){
 
 //first in first out
 fun int[] FIFO(int values[], int newValue){
-    for(values.cap() => int i; i > 0; i--){
+    for(values.size()-1 => int i; i > 0; i--){
         values[i] => values[i -1];
     }
-    newValue => values[values.cap()];
+    newValue => values[values.size()-1];
     return values;
 }
 
@@ -159,6 +161,7 @@ fun void program1(){
 spork ~ serialPoller();
 //spork ~program1();
 // COMPOSITION
+
 while (true)
 {
     .5::second => now;

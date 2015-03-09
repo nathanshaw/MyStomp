@@ -182,13 +182,13 @@ void printData(){
   ///////////// 9DOF
 
   int iroll = (int) roll;
-  Serial.print(iroll+ 500, DEC);
+  Serial.print(iroll, DEC);
   Serial.print(",");
   int ipitch = (int) pitch;
-  Serial.print(ipitch + 500, DEC);
+  Serial.print(ipitch, DEC);
   Serial.print(",");
   int iheading = (int) heading;
-  Serial.print(iheading + 500, DEC);
+  Serial.print(iheading, DEC);
   Serial.print(",");
 
   /////////// Buttons
@@ -242,11 +242,5 @@ void loop(){
   printData();
   delay(10);
 }
-
-
-
-
-
-
 
 
