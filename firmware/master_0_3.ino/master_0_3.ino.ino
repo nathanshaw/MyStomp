@@ -113,7 +113,7 @@
       if(butState[2] == 1 && metroSwitch == 0){
         sendMode(3);
         metroSwitch++;
-              Serial.println("Booting up My-Stomp in Metronome Mode");
+        Serial.println("Booting up My-Stomp in Metronome Mode");
       }
     }
   }
@@ -133,7 +133,8 @@
     ultra1 = analogRead(ultraPin[0]);
     ultra2 = analogRead(ultraPin[1]);
   }
-  //read data from the 9DOF sensor
+  
+  //read data from the 9DOF sensor, broken at moment
   void dofRead()
   {
     sensors_event_t accel_event;
@@ -197,8 +198,6 @@
   ////////////////////////////////////////////////////////////////////////////////////////
   void setup(){
     Serial.begin(57600);
-    //Filter1.begin();// initalize filters, they seem buggy so i took them out for now
-    //Filter2.begin();
     pinMode(ultraRX, OUTPUT);
     pinMode(ultraPin[0], INPUT);
     pinMode(ultraPin[1], INPUT);
@@ -216,7 +215,7 @@
   ////////////////////////////////////////////////////////////////////////////////////////
   void loop(){
     readButtons();
-    dofRead();
+    //dofRead();
     findRange();
     printData();
     delay(10);//not sure if we need this
