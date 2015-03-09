@@ -20,7 +20,7 @@ for( int i; i < list.cap(); i++ )
 {
     chout <= i <= ": " <= list[i] <= IO.newline();
 }
-serial.open(2, SerialIO.B57600, SerialIO.ASCII);
+serial.open(0, SerialIO.B57600, SerialIO.ASCII);
 
 fun void serialPoller(){
     while( true )
