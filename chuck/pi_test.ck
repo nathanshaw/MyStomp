@@ -1,4 +1,4 @@
-SerialIO serial;
+dSerialIO serial;
 string line;
 string stringInts[12];
 string modeInt[1];
@@ -20,7 +20,7 @@ for( int i; i < list.cap(); i++ )
 {
     chout <= i <= ": " <= list[i] <= IO.newline();
 }
-serial.open(2, SerialIO.B57600, SerialIO.ASCII);
+serial.open(0, SerialIO.B57600, SerialIO.ASCII);
 
 fun void serialPoller(){
     while( true )
@@ -145,7 +145,7 @@ fun void detectDofEvent(){
         15::ms => now;
     }    
 }
-/*
+
 fun void program1(){
     adc => pedal_clean clean => pedal_recorder rec => dac;
     spork ~rec.startRecording(0);
@@ -154,14 +154,17 @@ fun void program1(){
     //jcRev.mix(0.007);
     10::second => now;
     rec.kill();
+    spork ~rec.startRecording(1);
+    20::second => now;
+    rec.kill();
     while(true){
         10::ms => now;   
     }
 }
-*/
+
 spork ~ detectDofEvent();
 spork ~ serialPoller();
-//spork ~program1();
+spork ~program1();
 // COMPOSITION
 
 while (true)
