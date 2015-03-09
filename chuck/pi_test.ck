@@ -162,8 +162,9 @@ fun void program1(){
     }
 }
 
-spork ~ detectDofEvent();
 spork ~ serialPoller();
+spork ~ detectDofEvent();
+2::secon => now;
 spork ~program1();
 // COMPOSITION
 
