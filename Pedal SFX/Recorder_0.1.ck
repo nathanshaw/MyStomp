@@ -20,16 +20,14 @@ public class pedal_recorder extends Chubgraph{
     fun void startRecording(int recNum){
         
         1 => loopVariable;
-        //<<<"Starting to record using WvOut">>>;
-        
+        //<<<"Starting to record using WvOut">>>;   
         /*
         "test_recording" + Std.stoi(recNum) + ".wav" => string name;
         recorder.wavFilename(name);     
         */
         "test_recording" => string recordingName;
-        recordingName <= recNum <= ".wav";
+        recordingName + recNum + ".wav" => recordingName;
         recorder.wavFilename(recordingName);     
-        
         
         while(loopVariable){
             10::ms => now;             
