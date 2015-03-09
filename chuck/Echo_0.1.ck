@@ -14,6 +14,10 @@ public class pedal_echo extends Chubgraph{
     inlet => Echo echo => Gain level => outlet;
     1 => int loopVariable;
     
+    fun void mix(float _level){
+        level.gain(_level);   
+    }
+    
     fun void initalize(float _level, int msLength, int msMax){
         
         1 => loopVariable;

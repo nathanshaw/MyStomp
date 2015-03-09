@@ -18,9 +18,6 @@ public class pedal_limiter extends Chubgraph{
     fun void initalize(){
         
         //<<<"Initalizing Limiter">>>;
-        
-        
-        
         limiter.limit();
         //sets values to 
         /*

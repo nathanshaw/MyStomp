@@ -4,6 +4,9 @@ public class pedal_chorus extends Chubgraph{
     
     1 => int loopVariable;
     
+    fun void mix(float _level){
+     level.gain(_level);   
+    }
     
     fun void initalize(float _level, float _modFreq, float _modDepth){
         
