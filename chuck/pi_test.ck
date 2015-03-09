@@ -1,4 +1,4 @@
-dSerialIO serial;
+SerialIO serial;
 string line;
 string stringInts[12];
 string modeInt[1];
