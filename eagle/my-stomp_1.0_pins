@@ -1,0 +1,230 @@
+Pinlist
+
+Exported from My-Stomp_routed_D.sch at 2/27/15 12:04 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Part     Pad      Pin        Dir      Net
+
+9DOF     P$1      P$1        io       SDA
+         P$2      P$2        io       SCL
+         P$3      P$3        io       GND
+         P$4      P$4        io       VCC
+
+B+       1        P          pas      VIN
+
+B-       1        P          pas      GND
+
+C1       1        1          pas      GND
+         2        2          pas      VCC
+
+IC1      1        GPB0       io       ROT1_BUT
+         2        GPB1       io       ROT2_BUT
+         3        GPB2       io       ROT3_BUT
+         4        GPB3       io       N$2
+         5        GPB4       io       N$3
+         6        GPB5       io                *** unconnected ***
+         7        GPB6       io                *** unconnected ***
+         8        GPB7       io                *** unconnected ***
+         9        VDD        pwr      VCC
+         10       VSS        pwr      GND
+         12       SCL        in       SCL
+         13       SDA        io       SDA
+         15       A0         in       GND
+         16       A1         in       GND
+         17       A2         in       GND
+         18       !RESET     in                *** unconnected ***
+         19       INTB       out      INTA
+         20       INTA       out      INTA
+         21       GPA0       io       ROT1_GCA
+         22       GPA1       io       ROT1_GCB
+         23       GPA2       io       ROT2_GCA
+         24       GPA3       io       ROT2_GCB
+         25       GPA4       io       ROT3_GCA
+         26       GPA5       io       ROT3_GCB
+         27       GPA6       io                *** unconnected ***
+         28       GPA7       io                *** unconnected ***
+
+LOGIC_A  P$1      P$1        io       VCC
+         P$2      P$2        io       GND
+         P$3      P$3        io                *** unconnected ***
+         P$4      P$4        io       TXA
+
+LOGIC_PI P$1      P$1        io       3.3V_PI
+         P$2      P$2        io       GND_PI
+         P$3      P$3        io       TX_PI
+         P$4      P$4        io       RX_PI
+
+MAIN     P$1      INTB       io                *** unconnected ***
+         P$2      INTA       io       N$1
+         P$3      SDA        io       US_RX
+         P$4      SCL        io       ANALOG_1
+         P$5      GND        io       GND
+         P$6      VCC        io       VCC
+
+PCB2     5V       5V         io       VCC
+         A0       A0         io       ANALOG_1
+         A1       A1         io       ANALOG_2
+         A2       A2         io                *** unconnected ***
+         A3       A3         io                *** unconnected ***
+         A4       A4         io       SDAB
+         A5       A5         io       SCLB
+         A6       A6         io                *** unconnected ***
+         A7       A7         io                *** unconnected ***
+         D2       D2         io       INTA
+         D3       D3         io       GSCLK
+         D4       D4         io       SDAB
+         D5       D5         io       SCLB
+         D6       D6         io       US_RX
+         D7       D7         io                *** unconnected ***
+         D8       D8         io                *** unconnected ***
+         D9       D9         io       XLAT
+         3V3      3V3        io                *** unconnected ***
+         D10      D10        io       BLANK
+         D11      D11        io       SIN
+         D12      D12        io                *** unconnected ***
+         D13      D13        io       SCLK
+         GND      GND        io                *** unconnected ***
+         REF      REF        io                *** unconnected ***
+         RST      RST        io                *** unconnected ***
+         RX1      RX0        io       RXA
+         TX1      TX1        io       TXA
+         VIN      VIN        io       VIN
+         GND.     GND.       io       GND
+         RST.     RST.       io                *** unconnected ***
+
+R1       P$1      1          pas      GND
+         P$2      2          pas      N$20
+
+R2       P$1      1          pas      SDA
+         P$2      2          pas      VCC
+
+R3       P$1      1          pas      SDA
+         P$2      2          pas      SDAB
+
+R4       P$1      1          pas      SCL
+         P$2      2          pas      VCC
+
+R5       P$1      1          pas      SCL
+         P$2      2          pas      SCLB
+
+R6       P$1      1          pas      GND
+         P$2      2          pas      ROT3_BUT
+
+R7       P$1      1          pas      GND
+         P$2      2          pas      ROT2_BUT
+
+R8       P$1      1          pas      GND
+         P$2      2          pas      ROT1_BUT
+
+RASPBERRY_PI 1        1          pas      3.3V_PI
+         2        2          pas               *** unconnected ***
+         3        3          pas               *** unconnected ***
+         4        4          pas               *** unconnected ***
+         5        5          pas               *** unconnected ***
+         6        6          pas      GND_PI
+         7        7          pas               *** unconnected ***
+         8        8          pas      TX_PI
+         9        9          pas               *** unconnected ***
+         10       10         pas      RX_PI
+         11       11         pas               *** unconnected ***
+         12       12         pas               *** unconnected ***
+         13       13         pas               *** unconnected ***
+         14       14         pas               *** unconnected ***
+         15       15         pas               *** unconnected ***
+         16       16         pas               *** unconnected ***
+         17       17         pas               *** unconnected ***
+         18       18         pas               *** unconnected ***
+         19       19         pas               *** unconnected ***
+         20       20         pas               *** unconnected ***
+         21       21         pas               *** unconnected ***
+         22       22         pas               *** unconnected ***
+         23       23         pas               *** unconnected ***
+         24       24         pas               *** unconnected ***
+         25       25         pas               *** unconnected ***
+         26       26         pas               *** unconnected ***
+         27       27         pas               *** unconnected ***
+         28       28         pas               *** unconnected ***
+         29       29         pas               *** unconnected ***
+         30       30         pas               *** unconnected ***
+         31       31         pas               *** unconnected ***
+         32       32         pas               *** unconnected ***
+         33       33         pas               *** unconnected ***
+         34       34         pas               *** unconnected ***
+         35       35         pas               *** unconnected ***
+         36       36         pas               *** unconnected ***
+         37       37         pas               *** unconnected ***
+         38       38         pas               *** unconnected ***
+         39       39         pas               *** unconnected ***
+         40       40         pas               *** unconnected ***
+
+ROT1     P$1      GCL        io       ROT1_GCB
+         P$2      GND        io       GND
+         P$3      GCR        io       ROT1_GCA
+         P$4      VCC        io       ROT1_G
+         P$5      BLU        io       ROT1_B
+         P$6      SWT        io       ROT1_BUT
+         P$7      GRN        io       ROT1_R
+         P$8      RED        io       VCC
+
+ROT2     P$1      GCL        io       ROT2_GCB
+         P$2      GND        io       GND
+         P$3      GCR        io       ROT2_GCA
+         P$4      VCC        io       ROT2_R
+         P$5      BLU        io       ROT2_G
+         P$6      SWT        io       ROT2_BUT
+         P$7      GRN        io       ROT2_B
+         P$8      RED        io       VCC
+
+ROT3     P$1      GCL        io       ROT3_GCB
+         P$2      GND        io       GND
+         P$3      GCR        io       ROT3_GCA
+         P$4      VCC        io       ROT3_R
+         P$5      BLU        io       ROT3_G
+         P$6      SWT        io       ROT3_BUT
+         P$7      GRN        io       ROT3_B
+         P$8      RED        io       VCC
+
+SLAVE    P$1      P$1        io       N$5
+         P$2      P$2        io       ANALOG_2
+         P$3      P$3        io       VCC
+         P$4      P$4        io       GND
+
+STATUS_LED P$1      P$1        io       VCC
+         P$2      P$2        io       SB
+         P$3      P$3        io       SG
+         P$4      P$4        io       SR
+
+STOMP1_BUT 1        P          pas      N$2
+
+STOMP2_BUT 1        P          pas      N$3
+
+U1       1        OUT1       io       ROT1_G
+         2        OUT2       io       ROT1_B
+         3        OUT3       io       ROT2_R
+         4        OUT4       io       ROT2_G
+         5        OUT5       io       ROT2_B
+         6        OUT6       io       ROT3_R
+         7        OUT7       io       ROT3_G
+         8        OUT8       io       ROT3_B
+         9        OUT9       io       SR
+         10       OUT10      io       SG
+         11       OUT11      io       SB
+         12       OUT12      io                *** unconnected ***
+         13       OUT13      io                *** unconnected ***
+         14       OUT14      io                *** unconnected ***
+         15       OUT15      io                *** unconnected ***
+         16       XERR       io                *** unconnected ***
+         17       SOUT       io                *** unconnected ***
+         18       GSCLK      io       GSCLK
+         19       DCPRG      io       DCPRG
+         20       IREF       io       N$20
+         21       VCC        io       VCC
+         22       GND        io       GND
+         23       BLANK      io       BLANK
+         24       XLAT       io       XLAT
+         25       SCLK       io       SCLK
+         26       SIN        io       SIN
+         27       VPRG       io       GND
+         28       OUT0       io       ROT1_R
+

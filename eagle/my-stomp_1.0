@@ -1,0 +1,191 @@
+Netlist
+
+Exported from My-Stomp_routed_D.brd at 2/27/15 12:04 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Net      Part     Pad
+
+3.3V_PI  LOGIC_PI P$1
+         RASPBERRY_PI 1
+
+ANALOG_1 MAIN     P$4
+         PCB2     A0
+
+ANALOG_2 PCB2     A1
+         SLAVE    P$2
+
+BLANK    PCB2     D10
+         U1       23
+
+DCPRG    U1       19
+
+GND      9DOF     P$3
+         B-       1
+         C1       1
+         IC1      10
+         IC1      15
+         IC1      16
+         IC1      17
+         LOGIC_A  P$2
+         MAIN     P$5
+         PCB2     GND.
+         R1       P$1
+         R6       P$1
+         R7       P$1
+         R8       P$1
+         ROT1     P$2
+         ROT2     P$2
+         ROT3     P$2
+         SLAVE    P$4
+         U1       22
+         U1       27
+
+GND_PI   LOGIC_PI P$2
+         RASPBERRY_PI 6
+
+GSCLK    PCB2     D3
+         U1       18
+
+INTA     IC1      19
+         IC1      20
+         PCB2     D2
+
+N$1      MAIN     P$2
+
+N$2      IC1      4
+         STOMP1_BUT 1
+
+N$3      IC1      5
+         STOMP2_BUT 1
+
+N$5      SLAVE    P$1
+
+N$20     R1       P$2
+         U1       20
+
+ROT1_B   ROT1     P$5
+         U1       2
+
+ROT1_BUT IC1      1
+         R8       P$2
+         ROT1     P$6
+
+ROT1_G   ROT1     P$4
+         U1       1
+
+ROT1_GCA IC1      21
+         ROT1     P$3
+
+ROT1_GCB IC1      22
+         ROT1     P$1
+
+ROT1_R   ROT1     P$7
+         U1       28
+
+ROT2_B   ROT2     P$7
+         U1       5
+
+ROT2_BUT IC1      2
+         R7       P$2
+         ROT2     P$6
+
+ROT2_G   ROT2     P$5
+         U1       4
+
+ROT2_GCA IC1      23
+         ROT2     P$3
+
+ROT2_GCB IC1      24
+         ROT2     P$1
+
+ROT2_R   ROT2     P$4
+         U1       3
+
+ROT3_B   ROT3     P$7
+         U1       8
+
+ROT3_BUT IC1      3
+         R6       P$2
+         ROT3     P$6
+
+ROT3_G   ROT3     P$5
+         U1       7
+
+ROT3_GCA IC1      25
+         ROT3     P$3
+
+ROT3_GCB IC1      26
+         ROT3     P$1
+
+ROT3_R   ROT3     P$4
+         U1       6
+
+RXA      PCB2     RX1
+
+RX_PI    LOGIC_PI P$4
+         RASPBERRY_PI 10
+
+SB       STATUS_LED P$2
+         U1       11
+
+SCL      9DOF     P$2
+         IC1      12
+         R4       P$1
+         R5       P$1
+
+SCLB     PCB2     A5
+         PCB2     D5
+         R5       P$2
+
+SCLK     PCB2     D13
+         U1       25
+
+SDA      9DOF     P$1
+         IC1      13
+         R2       P$1
+         R3       P$1
+
+SDAB     PCB2     A4
+         PCB2     D4
+         R3       P$2
+
+SG       STATUS_LED P$3
+         U1       10
+
+SIN      PCB2     D11
+         U1       26
+
+SR       STATUS_LED P$4
+         U1       9
+
+TXA      LOGIC_A  P$4
+         PCB2     TX1
+
+TX_PI    LOGIC_PI P$3
+         RASPBERRY_PI 8
+
+US_RX    MAIN     P$3
+         PCB2     D6
+
+VCC      9DOF     P$4
+         C1       2
+         IC1      9
+         LOGIC_A  P$1
+         MAIN     P$6
+         PCB2     5V
+         R2       P$2
+         R4       P$2
+         ROT1     P$8
+         ROT2     P$8
+         ROT3     P$8
+         SLAVE    P$3
+         STATUS_LED P$1
+         U1       21
+
+VIN      B+       1
+         PCB2     VIN
+
+XLAT     PCB2     D9
+         U1       24
+

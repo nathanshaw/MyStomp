@@ -1,0 +1,36 @@
+Partlist
+
+Exported from My-Stomp_routed_D.sch at 2/27/15 12:04 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part         Value          Device       Package      Library               Sheet
+
+9DOF         PICO_SPOX_4C   PICO_SPOX_4C PICO_SPOX_4C Mollex_Pico_Spox      1
+B+                          2,15/1,0     2,15/1,0     wirepad               1
+B-                          2,15/1,0     2,15/1,0     wirepad               1
+C1           0.1uf          CAPPTH1      CAP-PTH-5MM  SparkFun-Passives     1
+IC1          MCP23017SP     MCP23017SP   DIL28-3      adafruit              1
+LOGIC_A      PICO_SPOX_4C   PICO_SPOX_4C PICO_SPOX_4C Mollex_Pico_Spox      1
+LOGIC_PI     PICO_SPOX_4C   PICO_SPOX_4C PICO_SPOX_4C Mollex_Pico_Spox      1
+MAIN         PICO_SPOX_6C   PICO_SPOX_6C PICO_SPOX_6C Mollex_Pico_Spox      1
+PCB2         ARDUINO_NANO   ARDUINO_NANO ARDUINO_NANO E14_Arduino_published 1
+R1           3.9k           RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R2           4.7k           RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R3           33ohm          RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R4           4.7k           RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R5           33ohm          RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R6           10k            RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R7           10k            RESISTORPTH1 AXIAL-0.3    SparkFun              1
+R8           10k            RESISTORPTH1 AXIAL-0.3    SparkFun              1
+RASPBERRY_PI                PINHD-2X20   2X20         raspberry_pi          1
+ROT1         PICO_SPOX_8C   PICO_SPOX_8C PICO_SPOC_8C Mollex_Pico_Spox      1
+ROT2         PICO_SPOX_8C   PICO_SPOX_8C PICO_SPOC_8C Mollex_Pico_Spox      1
+ROT3         PICO_SPOX_8C   PICO_SPOX_8C PICO_SPOC_8C Mollex_Pico_Spox      1
+SLAVE        PICO_SPOX_4C   PICO_SPOX_4C PICO_SPOX_4C Mollex_Pico_Spox      1
+STATUS_LED   PICO_SPOX_4C   PICO_SPOX_4C PICO_SPOX_4C Mollex_Pico_Spox      1
+STOMP1_BUT                  2,15/1,0     2,15/1,0     wirepad               1
+STOMP2_BUT                  2,15/1,0     2,15/1,0     wirepad               1
+U1           TLC5940-NT     TLC5940-NT   DIL28-3      SparkFun-DigitalIC    1

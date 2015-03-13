@@ -1,0 +1,238 @@
+# NetScript
+# 
+# Exported from My-Stomp_routed_D.sch at 2/27/15 12:05 PM
+# 
+# EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+# 
+Change Class 0;
+Signal '3.3V_PI'  'LOGIC_PI' 'P$1' \
+                  'RASPBERRY_PI' '1' \
+                  ;
+Change Class 0;
+Signal 'ANALOG_1' 'MAIN'     'P$4' \
+                  'PCB2'     'A0' \
+                  ;
+Change Class 0;
+Signal 'ANALOG_2' 'PCB2'     'A1' \
+                  'SLAVE'    'P$2' \
+                  ;
+Change Class 0;
+Signal 'BLANK'    'PCB2'     'D10' \
+                  'U1'       '23' \
+                  ;
+Change Class 0;
+Signal 'DCPRG'    'U1'       '19' \
+                  ;
+Change Class 0;
+Signal 'GND'      '9DOF'     'P$3' \
+                  'B-'       '1' \
+                  'C1'       '1' \
+                  'IC1'      '10' \
+                  'IC1'      '15' \
+                  'IC1'      '16' \
+                  'IC1'      '17' \
+                  'LOGIC_A'  'P$2' \
+                  'MAIN'     'P$5' \
+                  'PCB2'     'GND.' \
+                  'R1'       'P$1' \
+                  'R6'       'P$1' \
+                  'R7'       'P$1' \
+                  'R8'       'P$1' \
+                  'ROT1'     'P$2' \
+                  'ROT2'     'P$2' \
+                  'ROT3'     'P$2' \
+                  'SLAVE'    'P$4' \
+                  'U1'       '22' \
+                  'U1'       '27' \
+                  ;
+Change Class 0;
+Signal 'GND_PI'   'LOGIC_PI' 'P$2' \
+                  'RASPBERRY_PI' '6' \
+                  ;
+Change Class 0;
+Signal 'GSCLK'    'PCB2'     'D3' \
+                  'U1'       '18' \
+                  ;
+Change Class 0;
+Signal 'INTA'     'IC1'      '19' \
+                  'IC1'      '20' \
+                  'PCB2'     'D2' \
+                  ;
+Change Class 0;
+Signal 'N$1'      'MAIN'     'P$2' \
+                  ;
+Change Class 0;
+Signal 'N$2'      'IC1'      '4' \
+                  'STOMP1_BUT' '1' \
+                  ;
+Change Class 0;
+Signal 'N$3'      'IC1'      '5' \
+                  'STOMP2_BUT' '1' \
+                  ;
+Change Class 0;
+Signal 'N$5'      'SLAVE'    'P$1' \
+                  ;
+Change Class 0;
+Signal 'N$20'     'R1'       'P$2' \
+                  'U1'       '20' \
+                  ;
+Change Class 0;
+Signal 'ROT1_B'   'ROT1'     'P$5' \
+                  'U1'       '2' \
+                  ;
+Change Class 0;
+Signal 'ROT1_BUT' 'IC1'      '1' \
+                  'R8'       'P$2' \
+                  'ROT1'     'P$6' \
+                  ;
+Change Class 0;
+Signal 'ROT1_G'   'ROT1'     'P$4' \
+                  'U1'       '1' \
+                  ;
+Change Class 0;
+Signal 'ROT1_GCA' 'IC1'      '21' \
+                  'ROT1'     'P$3' \
+                  ;
+Change Class 0;
+Signal 'ROT1_GCB' 'IC1'      '22' \
+                  'ROT1'     'P$1' \
+                  ;
+Change Class 0;
+Signal 'ROT1_R'   'ROT1'     'P$7' \
+                  'U1'       '28' \
+                  ;
+Change Class 0;
+Signal 'ROT2_B'   'ROT2'     'P$7' \
+                  'U1'       '5' \
+                  ;
+Change Class 0;
+Signal 'ROT2_BUT' 'IC1'      '2' \
+                  'R7'       'P$2' \
+                  'ROT2'     'P$6' \
+                  ;
+Change Class 0;
+Signal 'ROT2_G'   'ROT2'     'P$5' \
+                  'U1'       '4' \
+                  ;
+Change Class 0;
+Signal 'ROT2_GCA' 'IC1'      '23' \
+                  'ROT2'     'P$3' \
+                  ;
+Change Class 0;
+Signal 'ROT2_GCB' 'IC1'      '24' \
+                  'ROT2'     'P$1' \
+                  ;
+Change Class 0;
+Signal 'ROT2_R'   'ROT2'     'P$4' \
+                  'U1'       '3' \
+                  ;
+Change Class 0;
+Signal 'ROT3_B'   'ROT3'     'P$7' \
+                  'U1'       '8' \
+                  ;
+Change Class 0;
+Signal 'ROT3_BUT' 'IC1'      '3' \
+                  'R6'       'P$2' \
+                  'ROT3'     'P$6' \
+                  ;
+Change Class 0;
+Signal 'ROT3_G'   'ROT3'     'P$5' \
+                  'U1'       '7' \
+                  ;
+Change Class 0;
+Signal 'ROT3_GCA' 'IC1'      '25' \
+                  'ROT3'     'P$3' \
+                  ;
+Change Class 0;
+Signal 'ROT3_GCB' 'IC1'      '26' \
+                  'ROT3'     'P$1' \
+                  ;
+Change Class 0;
+Signal 'ROT3_R'   'ROT3'     'P$4' \
+                  'U1'       '6' \
+                  ;
+Change Class 0;
+Signal 'RXA'      'PCB2'     'RX1' \
+                  ;
+Change Class 0;
+Signal 'RX_PI'    'LOGIC_PI' 'P$4' \
+                  'RASPBERRY_PI' '10' \
+                  ;
+Change Class 0;
+Signal 'SB'       'STATUS_LED' 'P$2' \
+                  'U1'       '11' \
+                  ;
+Change Class 0;
+Signal 'SCL'      '9DOF'     'P$2' \
+                  'IC1'      '12' \
+                  'R4'       'P$1' \
+                  'R5'       'P$1' \
+                  ;
+Change Class 0;
+Signal 'SCLB'     'PCB2'     'A5' \
+                  'PCB2'     'D5' \
+                  'R5'       'P$2' \
+                  ;
+Change Class 0;
+Signal 'SCLK'     'PCB2'     'D13' \
+                  'U1'       '25' \
+                  ;
+Change Class 0;
+Signal 'SDA'      '9DOF'     'P$1' \
+                  'IC1'      '13' \
+                  'R2'       'P$1' \
+                  'R3'       'P$1' \
+                  ;
+Change Class 0;
+Signal 'SDAB'     'PCB2'     'A4' \
+                  'PCB2'     'D4' \
+                  'R3'       'P$2' \
+                  ;
+Change Class 0;
+Signal 'SG'       'STATUS_LED' 'P$3' \
+                  'U1'       '10' \
+                  ;
+Change Class 0;
+Signal 'SIN'      'PCB2'     'D11' \
+                  'U1'       '26' \
+                  ;
+Change Class 0;
+Signal 'SR'       'STATUS_LED' 'P$4' \
+                  'U1'       '9' \
+                  ;
+Change Class 0;
+Signal 'TXA'      'LOGIC_A'  'P$4' \
+                  'PCB2'     'TX1' \
+                  ;
+Change Class 0;
+Signal 'TX_PI'    'LOGIC_PI' 'P$3' \
+                  'RASPBERRY_PI' '8' \
+                  ;
+Change Class 0;
+Signal 'US_RX'    'MAIN'     'P$3' \
+                  'PCB2'     'D6' \
+                  ;
+Change Class 1;
+Signal 'VCC'      '9DOF'     'P$4' \
+                  'C1'       '2' \
+                  'IC1'      '9' \
+                  'LOGIC_A'  'P$1' \
+                  'MAIN'     'P$6' \
+                  'PCB2'     '5V' \
+                  'R2'       'P$2' \
+                  'R4'       'P$2' \
+                  'ROT1'     'P$8' \
+                  'ROT2'     'P$8' \
+                  'ROT3'     'P$8' \
+                  'SLAVE'    'P$3' \
+                  'STATUS_LED' 'P$1' \
+                  'U1'       '21' \
+                  ;
+Change Class 0;
+Signal 'VIN'      'B+'       '1' \
+                  'PCB2'     'VIN' \
+                  ;
+Change Class 0;
+Signal 'XLAT'     'PCB2'     'D9' \
+                  'U1'       '24' \
+                  ;

@@ -1,0 +1,149 @@
+Netlist
+
+Exported from My-Stomp_0.2.brd at 2/18/15 10:12 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Net      Part     Pad
+
+ANALOG_1 ARDUNO_UNO A1
+         JP1      3
+
+ANALOG_2 ARDUNO_UNO A2
+         JP2      3
+
+BLANK    ARDUNO_UNO D10
+         U1       23
+
+DCPRG    DCPRG    1
+         U1       19
+
+GND      ARDUNO_UNO GND@2
+         C1       1
+         IC1      10
+         IC1      15
+         IC1      16
+         IC1      17
+         JP1      1
+         JP2      1
+         R1       P$1
+         RENC_1   7
+         RENC_2   7
+         RENC_3   7
+         U1       22
+         U1       27
+
+GSCLK    ARDUNO_UNO D3
+         U1       18
+
+INTA     ARDUNO_UNO D2
+         IC1      19
+         IC1      20
+
+N$2      IC1      4
+         STOMP1_BUT 1
+
+N$3      IC1      5
+         STOMP2_BUT 1
+
+N$10     STATUS_R 1
+         U1       9
+
+N$11     STATUS_G 1
+         U1       10
+
+N$12     STATUS_B 1
+         U1       11
+
+N$20     R1       P$2
+         U1       20
+
+ROT1_B   RENC_1   4
+         U1       2
+
+ROT1_BUT IC1      1
+         RENC_1   3
+
+ROT1_G   RENC_1   5
+         U1       1
+
+ROT1_GCA IC1      21
+         RENC_1   6
+
+ROT1_GCB IC1      22
+         RENC_1   8
+
+ROT1_R   RENC_1   2
+         U1       28
+
+ROT2_B   RENC_2   2
+         U1       5
+
+ROT2_BUT IC1      2
+         RENC_2   3
+
+ROT2_G   RENC_2   4
+         U1       4
+
+ROT2_GCA IC1      23
+         RENC_2   6
+
+ROT2_GCB IC1      24
+         RENC_2   8
+
+ROT2_R   RENC_2   5
+         U1       3
+
+ROT3_B   RENC_3   2
+         U1       8
+
+ROT3_BUT IC1      3
+         RENC_3   3
+
+ROT3_G   RENC_3   4
+         U1       7
+
+ROT3_GCA IC1      25
+         RENC_3   6
+
+ROT3_GCB IC1      26
+         RENC_3   8
+
+ROT3_R   RENC_3   5
+         U1       6
+
+SCL      IC1      12
+         R4       P$1
+         R5       P$1
+
+SCLB     ARDUNO_UNO SCL
+         R5       P$2
+
+SCLK     ARDUNO_UNO D13
+         U1       25
+
+SDA      IC1      13
+         R2       P$1
+         R3       P$1
+
+SDAB     ARDUNO_UNO SDA
+         R3       P$2
+
+SIN      ARDUNO_UNO D11
+         U1       26
+
+VCC      ARDUNO_UNO 5V
+         C1       2
+         IC1      9
+         JP1      2
+         JP2      2
+         R2       P$2
+         R4       P$2
+         RENC_1   1
+         RENC_2   1
+         RENC_3   1
+         U1       21
+
+XLAT     ARDUNO_UNO D9
+         U1       24
+
