@@ -1,7 +1,7 @@
 SerialIO serial;
 string line;
-string stringInts[12];
 string modeInt[1];
+
 int ultras[2];
 int roll;
 int pitch;
@@ -10,8 +10,6 @@ int buttons[3];
 int encoders[3];
 int stomp;
 int mode;
-
-sine s;
 
 SerialIO.list() @=> string list[];
 for( int i; i < list.cap(); i++ )
@@ -29,37 +27,37 @@ fun void serialPoller(){
         
         if( line$Object == null ) continue;
         
-        0 => stringInts.size;
+        0 => modeInt.size;
         
         // Line Parser
-        if (RegEx.match("\\[([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+)\\]", line , stringInts))
+        if (RegEx.match("\\[([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+),([0-9]+)\\]", line , modeInt))
         {
-            for( 1 =>int i; i<stringInts.cap(); i++)  
+            for( 1 =>int i; i < modeInt.cap(); i++)  
             {
                 //ultrasonics
                 if(i < 3){
-                    Std.atoi(stringInts[i]) => ultras[i-1];
+                    Std.atoi(modeInt[i]) => ultras[i-1];
                 }
                 // 9 DOF
                 else if (i == 3){
-                    Std.atoi(stringInts[i])-500 => roll;
+                    Std.atoi(modeInt[i])-500 => roll;
                 }
                 else if (i == 4){
-                    Std.atoi(stringInts[i])-500 => pitch;
+                    Std.atoi(modeInt[i])-500 => pitch;
                 }
                 else if (i == 5){
-                    Std.atoi(stringInts[i])-500 => heading;
+                    Std.atoi(modeInt[i])-500 => heading;
                 }
                 //encoders
                 else if (i > 5 && i < 9){
-                    Std.atoi(stringInts[i]) => buttons[i - 6];
+                    Std.atoi(modeInt[i]) => buttons[i - 6];
                 }
                 else if (i > 8 && i < 12){
-                    Std.atoi(stringInts[i]) => encoders[i - 9];
+                    Std.atoi(modeInt[i]) => encoders[i - 9];
                 }
                 // stompbutton
                 else if( i == 12 ){
-                    Std.atoi(stringInts[i]) => stomp;
+                    Std.atoi(modeInt[i]) => stomp;
                     
                 }
             }

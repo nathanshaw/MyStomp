@@ -9,7 +9,7 @@ Encapsulated into Chubgraph for use with the My-Stomp FX Pedal
 ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-public class   extends Chubgraph{
+public class extends Chubgraph{
     
     1 => int loopVariable;
     
